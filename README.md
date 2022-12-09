@@ -13,4 +13,7 @@ Node.js
 
 ## Installation
 
-Clone it from the Github repository
+Clone it from the Github repository and install all the modules used such as inquirer and mysql
+
+## Video Walkthrough
+
