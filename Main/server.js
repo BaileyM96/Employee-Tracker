@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const cTable = require('console.table');
 
 
+
 //connect to a database
 const db = mysql.createConnection(
     {
@@ -20,10 +21,7 @@ db.connect(function(err){
     }
     console.log('connecterd to database')
 })
-//Query the database
-// db.query('SELECT * FROM department', function (err, results) {
-//     console.log(results);
-// });
+
 
 
 
@@ -235,7 +233,19 @@ app();
     }
 
     const updateEmployeeRole = () => {
-        //Time to add code for update role
+        db.query(`SELECT * FROM employee`, (err, res) => {
+            if (err) throw err;
+            let employees = (employee => ({name: employee.first_name + ' ' + employee.last_name, value: employee.id}));
+            inquirer.prompt([
+                {
+                    name: 'employee',
+                    type: 'rawlist',
+                    message: 'What employee do you want to update?',
+                    choices: employees
+                }
+            ])
+        })
+        app();
     }
 
 
@@ -243,19 +253,4 @@ app();
 
 
 
-
-
-    // If I pick view all departments I am presented with a table with department names and ids   **DONE
-
-    // If I view all roles it shows job title role id the department the role belongs to and the salary for the role **DONE
-
-    // If I view all employees it shows a table showing employee data like ids, first names, last names, job titles, department salaries, and managers **DONE
-
-    // WHEN I CHOOSE  ADD DEPARTMENT youre prompted to enter a name for the department and it gets added to the database **DONE
-
-    //  ADD A ROLE  you enter the name , salary, and department for the role and the role is added the database **DONE
-
-    // ADD an employee youre prompted to enter the employee first name, last name, role, and manager and is added the database **DONE
-
-    //UPDATE an employee role youre prompted to select an employee to update and their new role and this information is updated to the database
     
