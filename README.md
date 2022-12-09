@@ -24,3 +24,7 @@ Clone it from the Github repository and install all the modules used such as inq
 
 ## Video Walkthrough
 
+
+
+https://user-images.githubusercontent.com/108101478/206607567-c09e3c62-af1e-444c-8fd6-27aaf41b8eac.mp4
+
